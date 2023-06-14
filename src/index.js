@@ -75,6 +75,8 @@ import Jewelery from './components/Jewelery';
 import Men from './components/Men';
 import Women from './components/Women';
 import Cart from './components/Cart';
+import SignIn from './components/SignIn'
+import { Auth } from './components/Auth';
 import { store } from './redux/store'
 import { Provider } from 'react-redux'
 import { ApiProvider } from '@reduxjs/toolkit/query/react'
@@ -108,6 +110,14 @@ const appRouter = createBrowserRouter([
       {
         path:"/cart",
         element:<Cart/>
+      },
+      {
+        path:"/signin",
+        element:<SignIn/>
+      },
+      {
+        path:"/signup",
+        element:<Auth/>
       },
     ]
   }
