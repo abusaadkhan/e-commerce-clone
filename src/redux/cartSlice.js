@@ -40,9 +40,13 @@ export const cartSlice = createSlice({
                 }
             })
             state.count = state.count-1
+        },
+        removeProduct: (state,action) => {
+            state.products = state.products.filter(product => product.id !== action.payload)
+            state.count = state.count-1
         }
     }
 })
 
-export const { addProduct, deleteProduct } = cartSlice.actions
+export const { addProduct, deleteProduct, removeProduct } = cartSlice.actions
 export default cartSlice.reducer
