@@ -12,10 +12,11 @@ const Cart = () => {
         <div>
             {products.map((pro,key)=>{
                 return <div key={key} className=" bg-slate-600  w-[30.333%]  " >
-                            <img className=" w-full h-80" src={pro.image} />
-                            <h1>{pro.title}</h1>
-                            <h4>{pro.price}</h4>
-                            <button onClick={()=>dispatch(deleteProduct(pro.id))} >Remove From Cart</button>
+                            <img className=" w-full h-80" src={pro.product.image} />
+                            <h1>{pro.product.title}</h1>
+                            <h4>{pro.product.price}</h4>
+                            <h4>Count: {pro.count}</h4>
+                            <button onClick={()=>dispatch(deleteProduct(pro.product.id))} >Remove From Cart</button>
                         </div>
             })}
         </div>
