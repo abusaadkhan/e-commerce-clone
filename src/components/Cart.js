@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addProduct, deleteProduct } from "../redux/cartSlice";
+import { addProduct, deleteProduct, removeProduct } from "../redux/cartSlice";
 import Card from "./Card";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 
+    //const [totalPrice, setTotalPrice] = useState(0)
     const products = useSelector(state => state.cart.products)
+    const totalPrice = useSelector(state => state.cart.totalPrice)
     const dispatch = useDispatch()
+   
 
-    const getCount = ( index) => {
-        let count = useSelector(state => state.cart.products[index].count)
-        console.log("product count from getCount",count)
-        return count
-    }
+    
 
     return(
         <div >
@@ -24,13 +25,29 @@ const Cart = () => {
                                 <h4>{pro.product.price}</h4>
                             </div>
                             
-                            <h4>Count: {()=>getCount(key)} </h4>
-                            <div>
-                                <button onClick={() => dispatch(addProduct(pro.product.id))} >+</button>
+                            
+                            <div className="flex items-center justify-between w-14 ">
+                                <button onClick={() => dispatch(addProduct(pro.product))} >+</button>
+                                <h4>{pro.count}</h4>
+                                <button onClick={() => dispatch(deleteProduct(pro.product.id))} >-</button>
                             </div>
-                            <button onClick={()=>dispatch(deleteProduct(pro.product.id))} >Remove From Cart</button>
+                            <button onClick={()=>dispatch(removeProduct(pro.product.id))} >Remove From Cart</button>
                         </div>
             })}
+
+            <div>
+                Total price: {totalPrice}
+            </div>
+            
+
+            {
+                
+                products.length!==0? (
+                    <Link to='/checkout' >
+                        <button>Checkout</button>
+                    </Link>
+                ) : <></>
+            }
         </div>
     )
 }

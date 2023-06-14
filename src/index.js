@@ -81,6 +81,7 @@ import { store } from './redux/store'
 import { Provider } from 'react-redux'
 import { ApiProvider } from '@reduxjs/toolkit/query/react'
 import { fakeStoreApi } from './redux/apiSlice';
+import Checkout from './components/Checkout';
 
 const appRouter = createBrowserRouter([
   {
@@ -118,6 +119,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/signup",
         element:<Auth/>
+      },
+      {
+        path:"/checkout",
+        element:<Checkout/>
       },
     ]
   }
