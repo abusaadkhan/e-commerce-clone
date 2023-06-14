@@ -11,10 +11,16 @@ const Cart = () => {
     return(
         <div>
             {products.map((pro,key)=>{
-                return <Card pro={pro} key={key} />
+                return <div key={key} className=" bg-slate-600  w-[30.333%]  " >
+                            <img className=" w-full h-80" src={pro.image} />
+                            <h1>{pro.title}</h1>
+                            <h4>{pro.price}</h4>
+                            <button onClick={()=>dispatch(deleteProduct(pro.id))} >Remove From Cart</button>
+                        </div>
             })}
         </div>
     )
 }
 
 export default Cart
+
