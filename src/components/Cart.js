@@ -5,16 +5,32 @@ import Card from "./Card";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import bin from '../assets/delete.png'
+import { auth } from '../firebase/firebase'
+import { onAuthStateChanged } from "firebase/auth";
 
 const Cart = () => {
 
-    //const [totalPrice, setTotalPrice] = useState(0)
+   
+    const [ path,setPath] = useState('/signin')
     const products = useSelector(state => state.cart.products)
     const totalPrice = useSelector(state => state.cart.totalPrice)
     const dispatch = useDispatch()
    
+    const getPath = () => {
+        onAuthStateChanged(auth,(user)=>{
+            if(user){
+                setPath('/checkout')
+            }
+        })
+        
+    }
 
-    
+
+    useEffect(()=>{
+        getPath()
+
+    },[])
+
 
     return(
         <div >
@@ -45,7 +61,7 @@ const Cart = () => {
             {
                 
                 products.length!==0? (
-                    <Link to='/checkout' >
+                    <Link to={path} >
                         <button className=" bg-red-700 text-white px-2 py-1 rounded-sm flex items-center " >Proceed to checkout</button>
                     </Link>
                 ) : <></>

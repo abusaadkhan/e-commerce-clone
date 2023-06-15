@@ -59,7 +59,7 @@ const Navbar = () => {
                     </Link>
                     <div className=" bg-red-600 w-4 h-4 rounded-full flex justify-center items-center text-xs absolute top-[-5px] right-2 " >{count}</div>
                 </div>
-                <div>
+                <div className="list-none" >
                 {
                     user? (
                         

@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useState } from 'react'
 import { auth } from '../firebase/firebase'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 
  
@@ -11,13 +11,14 @@ const SignIn = () => {
     const [password, setPassword] = useState('')
 
     const navigate = useNavigate()
+    
    
 
     const signIn = () => {
         signInWithEmailAndPassword(auth,email,password)
             .then((res)=>{
                 console.log("user signed in successfully",res.user)
-                navigate('/')
+                navigate(-1)
             })
             .catch((error)=>{
                 console.log('user signed in failed',error)
