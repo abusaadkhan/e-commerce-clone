@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const products = localStorage.getItem('products') !== null ? JSON.parse(localStorage.getItem('products')) : []
+const count = localStorage.getItem('count') !== null ? JSON.parse(localStorage.getItem('count')) : 0
+const totalPrice = localStorage.getItem('totalPrice') !== null ? JSON.parse(localStorage.getItem('totalPrice')) : 0
+
 
 const initialState = {
     // products: [
@@ -10,9 +14,9 @@ const initialState = {
     //                      },
     //              count: 9
     //          ]
-    products: [ ],
-    count: 0,
-    totalPrice: 0
+    products:products ,
+    count: count,
+    totalPrice: totalPrice
 }
 
 export const cartSlice = createSlice({
@@ -38,6 +42,9 @@ export const cartSlice = createSlice({
                 state.count = state.count+1
                 state.totalPrice = state.totalPrice + action.payload.price
             }
+            localStorage.setItem('products',JSON.stringify(state.products.map(pro=>pro)))
+            localStorage.setItem('count',JSON.stringify(state.count))
+            localStorage.setItem('totalPrice',JSON.stringify(state.totalPrice))
         },
         deleteProduct: (state,action) => {
             //state.products = state.products.filter(product => product.id !== action.payload)
@@ -53,6 +60,9 @@ export const cartSlice = createSlice({
                 }
             })
             state.count = state.count-1
+            localStorage.setItem('products',JSON.stringify(state.products.map(pro=>pro)))
+            localStorage.setItem('count',JSON.stringify(state.count))
+            localStorage.setItem('totalPrice',JSON.stringify(state.totalPrice))
         },
         removeProduct: (state,action) => {
             state.products.forEach((pro) => {
@@ -62,7 +72,9 @@ export const cartSlice = createSlice({
                 }
             })
             state.products = state.products.filter(product => product.product.id !== action.payload)
-            
+            localStorage.setItem('products',JSON.stringify(state.products.map(pro=>pro)))
+            localStorage.setItem('count',JSON.stringify(state.count))
+            localStorage.setItem('totalPrice',JSON.stringify(state.totalPrice))
         }
     }
 })
