@@ -9,13 +9,13 @@ const Women = () => {
 
 
     return(
-        <div>
-            <h1>Women</h1>
+        <div className=" min-h-screen box-border">
+           
             {isLoading && <h2>...Loading</h2> }
             { isFetching && <h2>.....fetching</h2> }
             {error && <h2>something went wrong</h2>}
             { isSuccess && (
-                <div className="flex flex-row flex-wrap gap-5 w-screen " >
+                <div className="flex flex-row items-center justify-center gap-14 flex-wrap  w-full " >
                     {data.map((pro,key)=>{
                         return <Card pro={pro} key={key} />
                     })}

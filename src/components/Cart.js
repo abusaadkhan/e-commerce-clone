@@ -33,7 +33,7 @@ const Cart = () => {
 
 
     return(
-        <div >
+        <div className=" min-h-screen " >
             {products.map((pro,key)=>{
                 return <div key={key} className="  w-full flex justify-between items-center my-4 p-4 " >
                             <div className="flex items-center gap-3 w-1/4">
