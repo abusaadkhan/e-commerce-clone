@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
+    <div className="mx-[5%] box-border ">
       <Navbar/>
       <Outlet/>
       <Footer/>

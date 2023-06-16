@@ -34,7 +34,7 @@ const Navbar = () => {
 
     return(
         
-        <div className=" bg-slate-400 w-full h-[50px] flex flex-row items-center justify-between " >
+        <div className=" bg-white w-full h-[80px] flex flex-row items-center justify-between " >
             <ul className="flex flex-row items-center  gap-4" >
                 <Link to='/' >
                     <li>Home</li>
