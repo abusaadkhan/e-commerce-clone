@@ -1,5 +1,5 @@
 # HOSTED LINK:
-(https://saad-ecommerce-clone.netlify.app/)
+https://saad-ecommerce-clone.netlify.app/
 
 
 
