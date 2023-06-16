@@ -53,7 +53,7 @@ const Cart = () => {
                         </div>
             })}
 
-            <div>
+            <div className="my-10 text-xl" >
                 Subtotal: Rs. {totalPrice}
             </div>
             

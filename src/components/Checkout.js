@@ -26,7 +26,7 @@ const Checkout = () => {
     },[])
 
     return(
-        <div>
+        <div className=" min-h-screen " >
             <div>
                 <div>
                     <label for='address' >Please Enter delivery address</label>

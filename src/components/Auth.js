@@ -27,10 +27,15 @@ export const Auth = () => {
 
 
     return(
+        <div className='flex justify-center items-start min-h-screen pt-10' >
+        <div className=' flex flex-col w-[300px] h-[300px] justify-between items-center mx-auto p-2 shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] ' >
+        <h1 className='text-xl font-semibold' >Sign Up</h1>
         <div>
-            <input type='email' placeholder='email' onChange={(e) => setEmail(e.target.value)} />
-            <input type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={signIn} >Sign UP</button>
+            <input className='w-full p-2 mb-4' type='email' placeholder='email' onChange={(e) => setEmail(e.target.value)} />
+            <input className='w-full p-2' type='password' placeholder='password' onChange={(e) => setPassword(e.target.value)} />
         </div>
+        <button className='bg-blue-500 py-1 px-2 rounded-sm w-full' onClick={signIn} >Sign Up</button>
+        </div>
+    </div>
     )
 }
